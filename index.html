@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda XP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f3f8;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .registro {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 320px;
+            box-shadow: 0 3px 12px #ccc;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #5945c5;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #mensaje {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registro">
+        <h2>Crear cuenta</h2>
+        <p>Bienvenido a Tienda XP</p>
+
+        <input id="correo" type="email"
+               placeholder="Correo electrónico">
+
+        <input id="contrasena" type="password"
+               placeholder="Contraseña">
+
+        <button onclick="registrar()">Registrarme</button>
+
+        <p id="mensaje"></p>
+    </div>
+
+    <script src="validaciones.js"></script>
+    <script>
+        function registrar() {
+            const correo = document.getElementById("correo").value;
+            const contrasena = document.getElementById("contrasena").value;
+            const mensaje = document.getElementById("mensaje");
+
+            if (!validarCorreo(correo)) {
+                mensaje.textContent = "Correo inválido";
+                return;
+            }
+
+            if (!validarContrasena(contrasena)) {
+                mensaje.textContent = "La contraseña debe tener 8 caracteres";
+                return;
+            }
+
+            mensaje.textContent = "¡Registro exitoso!";
+        }
+    </script>
+</body>
+</html>
