@@ -9,9 +9,9 @@ function validarCorreo(correo) {
 
 // Validar contraseña
 function validarContrasena(contrasena) {
-    return contrasena.length >= LONGITUD_MINIMA;
+    return typeof contrasena === 'string' &&
+           contrasena.length >= LONGITUD_MINIMA;
 }
-
 // Exportar funciones
 module.exports = {
     validarCorreo,
